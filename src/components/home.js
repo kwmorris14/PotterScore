@@ -13,11 +13,22 @@ export default class Home extends React.Component {
 	componentDidMount(){
 		var self = this;
 		var store = this.props.store;
-		this.state = {};
+		this.state = {
+			gryffindor:0,
+			slytherin:0,
+			ravenclaw:0,
+			hufflepuff:0
+		};
 	}
 
 	componentWillMount(){
 		//stuff
+		this.state = {
+			gryffindor:0,
+			slytherin:0,
+			ravenclaw:0,
+			hufflepuff:0
+		};
 	}
 
 	render() {

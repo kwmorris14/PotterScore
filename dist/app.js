@@ -71,7 +71,7 @@
 		{ history: _reactRouter.hashHistory },
 		_react2.default.createElement(_reactRouter.Route, { component: _templateLayout2.default }),
 		_react2.default.createElement(_reactRouter.Route, { path: '/', component: _home2.default })
-	), document.getElementById('app'));
+	), document.getElementById('hogwarts'));
 
 /***/ },
 /* 1 */
@@ -27125,6 +27125,8 @@
 				this.state = self;
 
 				this.state = {};
+
+				this.props.children = '<Link to="/" />';
 			}
 		}, {
 			key: 'componentDidMount',
@@ -27137,11 +27139,7 @@
 				return _react2.default.createElement(
 					'div',
 					null,
-					_react2.default.createElement(
-						'h1',
-						null,
-						'Welcome Home!'
-					)
+					this.props.children
 				);
 			}
 		}]);
@@ -27195,12 +27193,23 @@
 			value: function componentDidMount() {
 				var self = this;
 				var store = this.props.store;
-				this.state = {};
+				this.state = {
+					gryffindor: 0,
+					slytherin: 0,
+					ravenclaw: 0,
+					hufflepuff: 0
+				};
 			}
 		}, {
 			key: 'componentWillMount',
 			value: function componentWillMount() {
 				//stuff
+				this.state = {
+					gryffindor: 0,
+					slytherin: 0,
+					ravenclaw: 0,
+					hufflepuff: 0
+				};
 			}
 		}, {
 			key: 'render',
