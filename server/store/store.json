@@ -1,0 +1,6 @@
+var scoreboard = [{
+	"slytherin":0,
+	"gryffindor":0,
+	"hufflepuff":0,
+	"ravenclaw":0
+}]
