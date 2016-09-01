@@ -27139,6 +27139,11 @@
 				return _react2.default.createElement(
 					'div',
 					null,
+					_react2.default.createElement(
+						'header',
+						null,
+						'Potterscore!'
+					),
 					this.props.children
 				);
 			}
@@ -27200,6 +27205,8 @@
 
 				this.state = {};
 
+				this.props = {};
+
 				this.serverURL = "http://localhost:3000/scores";
 
 				this.serverRequest = _jQuery2.default.get(this.serverURL, function (result) {
@@ -27217,10 +27224,28 @@
 			key: 'componentDidMount',
 			value: function componentDidMount() {
 				var self = this;
+
+				// //For some reason, react doesn't want to use this funciton
+				// this.updatePoints = $.get("http://localhost:3000/scores", (result) => {
+
+				// 	var data = result[0];
+
+				// 	this.setState({
+				// 		gryffindor: data.gryffindor,
+				// 		slytherin: data.slytherin,
+				// 		ravenclaw: data.ravenclaw,
+				//		hufflepuff: data.hufflepuff
+				// 	});
+
+				// });
+
+				// //I will need more help making this auto update
+				// setInterval(this.updatePoints, 2000)
 			}
 		}, {
 			key: 'componentWillUnmount',
 			value: function componentWillUnmount() {
+
 				this.serverRequest.abort();
 			}
 		}, {
@@ -27261,7 +27286,13 @@
 							'Hufflepuff: ',
 							this.state.hufflepuff
 						),
-						_react2.default.createElement('button', { id: 'mainScoreboard__requestPoints', value: 'Request Points' })
+						_react2.default.createElement('br', null),
+						_react2.default.createElement('hr', null),
+						_react2.default.createElement(
+							'button',
+							{ id: 'mainScoreboard__requestPoints', onClick: '' },
+							'Request Points'
+						)
 					)
 				);
 			}

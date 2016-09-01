@@ -15,6 +15,8 @@ export default class Home extends React.Component {
 
 		this.state = {};
 
+		this.props = {};
+
 		this.serverURL = "http://localhost:3000/scores";
 
 		this.serverRequest = $.get(this.serverURL, (result) => {
@@ -31,10 +33,31 @@ export default class Home extends React.Component {
 
 	componentDidMount(){
 		var self = this;
+
+		// //For some reason, react doesn't want to use this funciton
+		// this.updatePoints = $.get("http://localhost:3000/scores", (result) => {
+
+		// 	var data = result[0];
+
+		// 	this.setState({
+		// 		gryffindor: data.gryffindor,
+		// 		slytherin: data.slytherin,
+		// 		ravenclaw: data.ravenclaw,
+		//		hufflepuff: data.hufflepuff
+		// 	});
+
+		// });
+
+		// //I will need more help making this auto update
+		// setInterval(this.updatePoints, 2000)
+
 	}
 
 	componentWillUnmount() {
+
     this.serverRequest.abort();
+
+
   	}
 
 	render() {
@@ -54,7 +77,11 @@ export default class Home extends React.Component {
 								<div id="mainScoreboard--hufflepuff">Hufflepuff: {this.state.hufflepuff}
 
 								</div>
-								<button id="mainScoreboard__requestPoints" value="Request Points" />
+								<br />
+								<hr />
+
+								<button id="mainScoreboard__requestPoints" onClick="">Request Points</button>
+
 							</div>
 					</div>
 			)

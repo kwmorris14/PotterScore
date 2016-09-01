@@ -30,9 +30,14 @@ export default class TemplateLayout extends React.Component {
 	}
 
 
-		render() {
-				return (<div>
-										{this.props.children}
-								</div>);
-		}
+	render() {
+		return (
+			<div>
+				<header>
+					Potterscore!
+				</header>
+				{this.props.children}
+			</div>
+		);
+	}
 }
