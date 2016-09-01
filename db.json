@@ -1,0 +1,15 @@
+{
+	"scores": [
+		{
+		"gryffindor":1,
+		"slytherin":2,
+		"ravenclaw":3,
+	 	"hufflepuff":4
+	 	}
+	],
+	"requests":[
+		{
+
+		}
+	]
+}
