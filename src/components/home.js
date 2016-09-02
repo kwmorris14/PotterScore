@@ -34,22 +34,25 @@ export default class Home extends React.Component {
 	componentDidMount(){
 		var self = this;
 
-		// //For some reason, react doesn't want to use this funciton
-		// this.updatePoints = $.get("http://localhost:3000/scores", (result) => {
+		//For some reason, react doesn't want to use this funciton
+		this.updatePoints = () => $.get("http://localhost:3000/scores", (result) => {
 
-		// 	var data = result[0];
+			console.log("called")
+			var data = result[0];
 
-		// 	this.setState({
-		// 		gryffindor: data.gryffindor,
-		// 		slytherin: data.slytherin,
-		// 		ravenclaw: data.ravenclaw,
-		//		hufflepuff: data.hufflepuff
-		// 	});
+			this.setState({
+				gryffindor: data.gryffindor,
+				slytherin: data.slytherin,
+				ravenclaw: data.ravenclaw,
+				hufflepuff: data.hufflepuff
+			});
 
-		// });
+		});
 
-		// //I will need more help making this auto update
-		// setInterval(this.updatePoints, 2000)
+		//I will need more help making this auto update
+		console.log("before")
+		setInterval((this.updatePoints), 2000);
+		console.log("after")
 
 	}
 

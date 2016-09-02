@@ -9,7 +9,7 @@
     "pack": "webpack ./lib/app.js ./dist/app.js",
     "prestart": "npm run pack",
     "server-on":"json-server --watch db.json",
-    "start": "npm run prestart && http-server -p 5000 && npm run server-on",
+    "start": "npm run prestart && http-server -p 5000",
     "publish":"npm run build && npm run start",
     "coverage": "babel-node node_modules/isparta/bin/isparta cover --report html node_modules/mocha/bin/_mocha -- tests/*.js",
     "cover": "npm run test && npm run coverage",
