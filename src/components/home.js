@@ -37,7 +37,6 @@ export default class Home extends React.Component {
 		//For some reason, react doesn't want to use this funciton
 		this.updatePoints = () => $.get("http://localhost:3000/scores", (result) => {
 
-			console.log("called")
 			var data = result[0];
 
 			this.setState({
@@ -49,10 +48,7 @@ export default class Home extends React.Component {
 
 		});
 
-		//I will need more help making this auto update
-		console.log("before")
 		setInterval((this.updatePoints), 2000);
-		console.log("after")
 
 	}
 

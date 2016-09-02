@@ -1,10 +1,10 @@
 {
 	"scores": [
 		{
-		"gryffindor":1,
-		"slytherin":2,
-		"ravenclaw":20,
-	 	"hufflepuff":9
+		"gryffindor":10,
+		"slytherin":10,
+		"ravenclaw":10,
+	 	"hufflepuff":10
 	 	}
 	],
 	"requests":[
