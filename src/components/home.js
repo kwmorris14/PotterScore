@@ -48,7 +48,7 @@ export default class Home extends React.Component {
 
 		});
 
-		setInterval((this.updatePoints), 2000);
+		setInterval((this.updatePoints), 5000);
 
 	}
 
