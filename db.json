@@ -2,9 +2,9 @@
 	"scores": [
 		{
 		"gryffindor":10,
-		"slytherin":10,
-		"ravenclaw":10,
-	 	"hufflepuff":10
+		"slytherin":20,
+		"ravenclaw":30,
+	 	"hufflepuff":40
 	 	}
 	],
 	"requests":[

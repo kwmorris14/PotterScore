@@ -1,7 +1,17 @@
 body {
+	text-align: center;
+	text-transform: capitalize;
+	border:solid brown 4px;
+	background-color: black;
+	color: white;
 
 }
 
 header {
 	text-align: center;
+}
+
+#mainScoreboard {
+	font-size: 24px;
+	columns: 2;
 }

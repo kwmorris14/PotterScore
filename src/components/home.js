@@ -34,7 +34,6 @@ export default class Home extends React.Component {
 	componentDidMount(){
 		var self = this;
 
-		//For some reason, react doesn't want to use this funciton
 		this.updatePoints = () => $.get("http://localhost:3000/scores", (result) => {
 
 			var data = result[0];
@@ -76,12 +75,10 @@ export default class Home extends React.Component {
 								<div id="mainScoreboard--hufflepuff">Hufflepuff: {this.state.hufflepuff}
 
 								</div>
+							</div>
 								<br />
 								<hr />
-
-								<button id="mainScoreboard__requestPoints" onClick="">Request Points</button>
-
-							</div>
+							<button id="mainScoreboard__requestPoints" onClick="">Request Points</button>
 					</div>
 			)
 	}

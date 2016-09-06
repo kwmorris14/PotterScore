@@ -27227,11 +27227,9 @@
 
 				var self = this;
 
-				//For some reason, react doesn't want to use this funciton
 				this.updatePoints = function () {
 					return _jQuery2.default.get("http://localhost:3000/scores", function (result) {
 
-						console.log("called");
 						var data = result[0];
 
 						_this3.setState({
@@ -27243,10 +27241,7 @@
 					});
 				};
 
-				//I will need more help making this auto update
-				console.log("before");
-				setInterval(this.updatePoints, 2000);
-				console.log("after");
+				setInterval(this.updatePoints, 5000);
 			}
 		}, {
 			key: 'componentWillUnmount',
@@ -27291,14 +27286,14 @@
 							{ id: 'mainScoreboard--hufflepuff' },
 							'Hufflepuff: ',
 							this.state.hufflepuff
-						),
-						_react2.default.createElement('br', null),
-						_react2.default.createElement('hr', null),
-						_react2.default.createElement(
-							'button',
-							{ id: 'mainScoreboard__requestPoints', onClick: '' },
-							'Request Points'
 						)
+					),
+					_react2.default.createElement('br', null),
+					_react2.default.createElement('hr', null),
+					_react2.default.createElement(
+						'button',
+						{ id: 'mainScoreboard__requestPoints', onClick: '' },
+						'Request Points'
 					)
 				);
 			}
