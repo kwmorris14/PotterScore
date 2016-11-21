@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router'
 import $ from 'jQuery'
+//import Constants from './components/constants'
 
 export default class Home extends React.Component {
 
@@ -34,7 +35,7 @@ export default class Home extends React.Component {
 	componentDidMount(){
 		var self = this;
 
-		this.updatePoints = () => $.get("http://localhost:3000/scores", (result) => {
+		this.updatePoints = () => $.get(this.serverURL, (result) => {
 
 			var data = result[0];
 
@@ -79,6 +80,10 @@ export default class Home extends React.Component {
 								<br />
 								<hr />
 							<button id="mainScoreboard__requestPoints" onClick="">Request Points</button>
+							<br />
+							<hr />
+							<Link to="/adminConsole">Headmaster Controls</Link>
+							<hr />
 					</div>
 			)
 	}

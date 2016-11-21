@@ -54,23 +54,27 @@
 
 	var _reactRouter = __webpack_require__(172);
 
-	var _templateLayout = __webpack_require__(235);
+	var _adminConsole = __webpack_require__(235);
+
+	var _adminConsole2 = _interopRequireDefault(_adminConsole);
+
+	var _templateLayout = __webpack_require__(237);
 
 	var _templateLayout2 = _interopRequireDefault(_templateLayout);
 
-	var _home = __webpack_require__(236);
+	var _home = __webpack_require__(238);
 
 	var _home2 = _interopRequireDefault(_home);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	//<Router history={browserHistory}>
-
+	//import Constants from './components/constants'
 	ReactDOM.render(_react2.default.createElement(
 		_reactRouter.Router,
 		{ history: _reactRouter.hashHistory },
 		_react2.default.createElement(_reactRouter.Route, { component: _templateLayout2.default }),
-		_react2.default.createElement(_reactRouter.Route, { path: '/', component: _home2.default })
+		_react2.default.createElement(_reactRouter.Route, { path: '/', component: _home2.default }),
+		_react2.default.createElement(_reactRouter.Route, { path: '/adminConsole', component: _adminConsole2.default })
 	), document.getElementById('hogwarts'));
 
 /***/ },
@@ -27093,86 +27097,7 @@
 
 	var _reactRouter = __webpack_require__(172);
 
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-	var TemplateLayout = function (_React$Component) {
-		_inherits(TemplateLayout, _React$Component);
-
-		//state instantiation
-		function TemplateLayout(props) {
-			_classCallCheck(this, TemplateLayout);
-
-			var _this = _possibleConstructorReturn(this, (TemplateLayout.__proto__ || Object.getPrototypeOf(TemplateLayout)).call(this, props));
-
-			_this.state = {};
-
-			_this.render = _this.render.bind(_this);
-			return _this;
-		}
-
-		_createClass(TemplateLayout, [{
-			key: 'componentWillMount',
-			value: function componentWillMount() {
-
-				var self = this;
-
-				this.state = self;
-
-				this.state = {};
-
-				this.props.children = '<Link to="/" />';
-			}
-		}, {
-			key: 'componentDidMount',
-			value: function componentDidMount() {
-				this.state = {};
-			}
-		}, {
-			key: 'render',
-			value: function render() {
-				return _react2.default.createElement(
-					'div',
-					null,
-					_react2.default.createElement(
-						'header',
-						null,
-						'Potterscore!'
-					),
-					this.props.children
-				);
-			}
-		}]);
-
-		return TemplateLayout;
-	}(_react2.default.Component);
-
-	exports.default = TemplateLayout;
-
-/***/ },
-/* 236 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-		value: true
-	});
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-	var _react = __webpack_require__(1);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _reactRouter = __webpack_require__(172);
-
-	var _jQuery = __webpack_require__(237);
+	var _jQuery = __webpack_require__(236);
 
 	var _jQuery2 = _interopRequireDefault(_jQuery);
 
@@ -27184,24 +27109,25 @@
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-	var Home = function (_React$Component) {
-		_inherits(Home, _React$Component);
+	//import Constants from './components/constants'
 
-		function Home(props) {
-			_classCallCheck(this, Home);
+	var AdminConsole = function (_React$Component) {
+		_inherits(AdminConsole, _React$Component);
 
-			var _this = _possibleConstructorReturn(this, (Home.__proto__ || Object.getPrototypeOf(Home)).call(this, props));
+		//state instantiation
+		function AdminConsole(props) {
+			_classCallCheck(this, AdminConsole);
+
+			var _this = _possibleConstructorReturn(this, (AdminConsole.__proto__ || Object.getPrototypeOf(AdminConsole)).call(this, props));
 
 			_this.render = _this.render.bind(_this);
 			return _this;
 		}
 
-		_createClass(Home, [{
+		_createClass(AdminConsole, [{
 			key: 'componentWillMount',
 			value: function componentWillMount() {
 				var _this2 = this;
-
-				var self = this;
 
 				this.state = {};
 
@@ -27228,7 +27154,7 @@
 				var self = this;
 
 				this.updatePoints = function () {
-					return _jQuery2.default.get("http://localhost:3000/scores", function (result) {
+					return _jQuery2.default.get(_this3.serverURL, function (result) {
 
 						var data = result[0];
 
@@ -27241,13 +27167,19 @@
 					});
 				};
 
-				setInterval(this.updatePoints, 5000);
-			}
-		}, {
-			key: 'componentWillUnmount',
-			value: function componentWillUnmount() {
+				this.addPoints = function (house) {
+					return _jQuery2.default.post(_this3.serverURL, function (result) {
 
-				this.serverRequest.abort();
+						_this3.state.house.value += 10;
+					});
+				};
+
+				this.removePoints = function (house) {
+					return $post(_this3.serverURL, function (result) {
+
+						_this3.state.house.value -= 10;
+					});
+				};
 			}
 		}, {
 			key: 'render',
@@ -27258,54 +27190,92 @@
 					_react2.default.createElement(
 						'h2',
 						null,
-						'Potterscore home'
+						'Welcome Headmaster'
+					),
+					_react2.default.createElement(
+						'h3',
+						null,
+						'Current Scores'
 					),
 					_react2.default.createElement(
 						'div',
-						{ id: 'mainScoreboard' },
+						{ id: 'headmasterScoreboard' },
 						_react2.default.createElement(
 							'div',
-							{ id: 'mainScoreboard--gryffindor' },
+							{ id: 'headmasterScoreboard--gryffindor' },
 							'Gryffindor: ',
 							this.state.gryffindor
 						),
 						_react2.default.createElement(
 							'div',
-							{ id: 'mainScoreboard--slytherin' },
+							{ id: 'headmasterScoreboard--slytherin' },
 							'Slytherin: ',
 							this.state.slytherin
 						),
 						_react2.default.createElement(
 							'div',
-							{ id: 'mainScoreboard--ravenclaw' },
+							{ id: 'headmasterScoreboard--ravenclaw' },
 							'Ravenclaw: ',
 							this.state.ravenclaw
 						),
 						_react2.default.createElement(
 							'div',
-							{ id: 'mainScoreboard--hufflepuff' },
+							{ id: 'headmasterScoreboard--hufflepuff' },
 							'Hufflepuff: ',
 							this.state.hufflepuff
 						)
 					),
-					_react2.default.createElement('br', null),
-					_react2.default.createElement('hr', null),
 					_react2.default.createElement(
 						'button',
-						{ id: 'mainScoreboard__requestPoints', onClick: '' },
-						'Request Points'
+						{ id: 'addPoints--gryffindor', onclick: this.addPoints("gryffindor") },
+						'Add 10 points to Gryffindor'
+					),
+					_react2.default.createElement(
+						'button',
+						{ id: 'removePoints--gryffindor', onclick: this.removePoints("gryffindor") },
+						'Subdtract 10 points from Gryffindor'
+					),
+					_react2.default.createElement(
+						'button',
+						{ id: 'addPoints--slytherin', onclick: this.addPoints("slytherin") },
+						'Add 10 points to Slytherin'
+					),
+					_react2.default.createElement(
+						'button',
+						{ id: 'removePoints--slytherin', onclick: this.removePoints("slytherin") },
+						'Add 10 points to Slytherin'
+					),
+					_react2.default.createElement(
+						'button',
+						{ id: 'addPoints--ravenclaw', onclick: this.addPoints("ravenclaw") },
+						'Add 10 points to Ravenclaw'
+					),
+					_react2.default.createElement(
+						'button',
+						{ id: 'removePoints--ravenclaw', onclick: this.removePoints("ravenclaw") },
+						'Add 10 points to Ravenclaw'
+					),
+					_react2.default.createElement(
+						'button',
+						{ id: 'addPoints--hufflepuff', onclick: this.addPoints("hufflepuff") },
+						'Add 10 points to Hufflepuff'
+					),
+					_react2.default.createElement(
+						'button',
+						{ id: 'removePoints--hufflepuff', onclick: this.removePoints("hufflepuff") },
+						'Add 10 points to Hufflepuff'
 					)
 				);
 			}
 		}]);
 
-		return Home;
+		return AdminConsole;
 	}(_react2.default.Component);
 
-	exports.default = Home;
+	exports.default = AdminConsole;
 
 /***/ },
-/* 237 */
+/* 236 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*eslint-disable no-unused-vars*/
@@ -37383,6 +37353,251 @@
 	return jQuery;
 	} );
 
+
+/***/ },
+/* 237 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _reactRouter = __webpack_require__(172);
+
+	var _jQuery = __webpack_require__(236);
+
+	var _jQuery2 = _interopRequireDefault(_jQuery);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	//import Constants from './components/constants'
+
+	var TemplateLayout = function (_React$Component) {
+		_inherits(TemplateLayout, _React$Component);
+
+		//state instantiation
+		function TemplateLayout(props) {
+			_classCallCheck(this, TemplateLayout);
+
+			var _this = _possibleConstructorReturn(this, (TemplateLayout.__proto__ || Object.getPrototypeOf(TemplateLayout)).call(this, props));
+
+			_this.state = {};
+
+			_this.render = _this.render.bind(_this);
+			return _this;
+		}
+
+		_createClass(TemplateLayout, [{
+			key: 'componentWillMount',
+			value: function componentWillMount() {
+
+				var self = this;
+
+				this.state = self;
+
+				this.state = {};
+
+				this.props.children = '<Link to="/" />';
+			}
+		}, {
+			key: 'componentDidMount',
+			value: function componentDidMount() {
+				this.state = {};
+			}
+		}, {
+			key: 'render',
+			value: function render() {
+				return _react2.default.createElement(
+					'div',
+					null,
+					_react2.default.createElement(
+						'header',
+						null,
+						'Potterscore!'
+					),
+					this.props.children
+				);
+			}
+		}]);
+
+		return TemplateLayout;
+	}(_react2.default.Component);
+
+	exports.default = TemplateLayout;
+
+/***/ },
+/* 238 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _reactRouter = __webpack_require__(172);
+
+	var _jQuery = __webpack_require__(236);
+
+	var _jQuery2 = _interopRequireDefault(_jQuery);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	//import Constants from './components/constants'
+
+	var Home = function (_React$Component) {
+		_inherits(Home, _React$Component);
+
+		function Home(props) {
+			_classCallCheck(this, Home);
+
+			var _this = _possibleConstructorReturn(this, (Home.__proto__ || Object.getPrototypeOf(Home)).call(this, props));
+
+			_this.render = _this.render.bind(_this);
+			return _this;
+		}
+
+		_createClass(Home, [{
+			key: 'componentWillMount',
+			value: function componentWillMount() {
+				var _this2 = this;
+
+				var self = this;
+
+				this.state = {};
+
+				this.props = {};
+
+				this.serverURL = "http://localhost:3000/scores";
+
+				this.serverRequest = _jQuery2.default.get(this.serverURL, function (result) {
+					var data = result[0];
+
+					_this2.setState({
+						gryffindor: data.gryffindor,
+						slytherin: data.slytherin,
+						ravenclaw: data.ravenclaw,
+						hufflepuff: data.hufflepuff
+					});
+				});
+			}
+		}, {
+			key: 'componentDidMount',
+			value: function componentDidMount() {
+				var _this3 = this;
+
+				var self = this;
+
+				this.updatePoints = function () {
+					return _jQuery2.default.get(_this3.serverURL, function (result) {
+
+						var data = result[0];
+
+						_this3.setState({
+							gryffindor: data.gryffindor,
+							slytherin: data.slytherin,
+							ravenclaw: data.ravenclaw,
+							hufflepuff: data.hufflepuff
+						});
+					});
+				};
+
+				setInterval(this.updatePoints, 5000);
+			}
+		}, {
+			key: 'componentWillUnmount',
+			value: function componentWillUnmount() {
+
+				this.serverRequest.abort();
+			}
+		}, {
+			key: 'render',
+			value: function render() {
+				return _react2.default.createElement(
+					'div',
+					null,
+					_react2.default.createElement(
+						'h2',
+						null,
+						'Potterscore home'
+					),
+					_react2.default.createElement(
+						'div',
+						{ id: 'mainScoreboard' },
+						_react2.default.createElement(
+							'div',
+							{ id: 'mainScoreboard--gryffindor' },
+							'Gryffindor: ',
+							this.state.gryffindor
+						),
+						_react2.default.createElement(
+							'div',
+							{ id: 'mainScoreboard--slytherin' },
+							'Slytherin: ',
+							this.state.slytherin
+						),
+						_react2.default.createElement(
+							'div',
+							{ id: 'mainScoreboard--ravenclaw' },
+							'Ravenclaw: ',
+							this.state.ravenclaw
+						),
+						_react2.default.createElement(
+							'div',
+							{ id: 'mainScoreboard--hufflepuff' },
+							'Hufflepuff: ',
+							this.state.hufflepuff
+						)
+					),
+					_react2.default.createElement('br', null),
+					_react2.default.createElement('hr', null),
+					_react2.default.createElement(
+						'button',
+						{ id: 'mainScoreboard__requestPoints', onClick: '' },
+						'Request Points'
+					),
+					_react2.default.createElement('br', null),
+					_react2.default.createElement('hr', null),
+					_react2.default.createElement(
+						_reactRouter.Link,
+						{ to: '/adminConsole' },
+						'Headmaster Controls'
+					),
+					_react2.default.createElement('hr', null)
+				);
+			}
+		}]);
+
+		return Home;
+	}(_react2.default.Component);
+
+	exports.default = Home;
 
 /***/ }
 /******/ ]);

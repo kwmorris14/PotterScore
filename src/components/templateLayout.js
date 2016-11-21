@@ -1,5 +1,7 @@
 import React from 'react'
 import {Router, Route, Link, browserHistory, RouteHandler} from 'react-router'
+import $ from 'jQuery'
+//import Constants from './components/constants'
 
 export default class TemplateLayout extends React.Component {
 

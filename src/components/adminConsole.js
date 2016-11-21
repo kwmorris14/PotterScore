@@ -1,5 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router'
+import $ from 'jQuery'
+//import Constants from './components/constants'
 
 export default class AdminConsole extends React.Component {
 
@@ -11,66 +13,91 @@ export default class AdminConsole extends React.Component {
 	}
 
 	componentWillMount(){
-		this.state = housePointScores;
+		this.state = {};
+
+		this.props = {};
+
+		this.serverURL = "http://localhost:3000/scores";
+
+		this.serverRequest = $.get(this.serverURL, (result) => {
+			var data = result[0];
+
+			this.setState({
+				gryffindor: data.gryffindor,
+				slytherin: data.slytherin,
+				ravenclaw: data.ravenclaw,
+	 			hufflepuff: data.hufflepuff
+			});
+		});
 	}
 
 	componentDidMount(){
 		var self = this;
 
-		var store = this.props.store;
+		this.updatePoints = () => $.get(this.serverURL, (result) => {
 
-		this.state = housePointScores;
-	}
+			var data = result[0];
 
-	addPointsGryffindor(){
+			this.setState({
+				gryffindor: data.gryffindor,
+				slytherin: data.slytherin,
+				ravenclaw: data.ravenclaw,
+				hufflepuff: data.hufflepuff
+			});
 
-	}
+			setInterval((this.updatePoints), 5000);
 
-	addPointsSlytherin(){
-		
-	}
+		});
 
-	addPointsRavenclaw(){
-		
-	}
+		this.addPoints = (house) => $.post(this.serverURL, (result) => {
 
-	addPointsHufflepuff(){
-		
-	}
+			//this.state.house.value += 10;
 
-	removePointsGryffindor(){
+		})
 
-	}
+		this.removePoints = (house) => $post(this.serverURL, (result) => {
 
-	removePointsSlytherin(){
-		
-	}
+			//this.state.house.value -= 10;
 
-	removePointsRavenclaw(){
-		
-	}
+		})
 
-	removePointsHufflepuff(){
-		
 	}
 
 	render() {
-			return(
-					<div>
-						<h2>Welcome Albus</h2>
-						<button id="addPoints--gryffindor" value="Add Points For Gryffindor" onclick="addPointsGryffindor" />
-						<button id="removePoints--gryffindor" value="Remove Points For Gryffindor" onclick="removePointsGryffindor" />
+		return(
+				<div>
+					<h2>Welcome Headmaster</h2>
 
-						<button id="addPoints--slytherin"  value="Add Points For Slytherin" onclick="addPointsSlytherin" />
-						<button id="removePoints--slytherin"  value="Remove Points For Slytherin" onclick="removePointsSlytherin" />
+					<h3>Current Scores</h3>
 
-						<button id="addPoints--ravenclaw"  value="Add Points For Ravenclaw" onclick="addPointsRavenclaw" />
-						<button id="removePoints--ravenclaw"  value="Remove Points For Ravenclaw" onclick="removePointsRavenclaw" />
+					<div id="headmasterScoreboard">
+						<div id="headmasterScoreboard--gryffindor">Gryffindor: {this.state.gryffindor}
 
-						<button id="addPoints--hufflepuff" value="Add Points For Hufflepuff" onclick="addPointsHufflepuff" />
-						<button id="removePoints--hufflepuff" value="Remove Points For Hufflepuff" onclick="removePointsHufflepuff" />
+						</div>
+						<div id="headmasterScoreboard--slytherin">Slytherin: {this.state.slytherin}
+
+						</div>
+						<div id="headmasterScoreboard--ravenclaw">Ravenclaw: {this.state.ravenclaw}
+
+						</div>
+						<div id="headmasterScoreboard--hufflepuff">Hufflepuff: {this.state.hufflepuff}
+
+						</div>
 					</div>
-			)
+
+					<button id="addPoints--gryffindor" onclick={this.addPoints("gryffindor")}>Add 10 points to Gryffindor</button>
+					<button id="removePoints--gryffindor" onclick={this.removePoints("gryffindor")}>Subdtract 10 points from Gryffindor</button>
+
+					<button id="addPoints--slytherin" onclick={this.addPoints("slytherin")}>Add 10 points to Slytherin</button>
+					<button id="removePoints--slytherin" onclick={this.removePoints("slytherin")}>Add 10 points to Slytherin</button>
+
+					<button id="addPoints--ravenclaw" onclick={this.addPoints("ravenclaw")}>Add 10 points to Ravenclaw</button>
+					<button id="removePoints--ravenclaw" onclick={this.removePoints("ravenclaw")}>Add 10 points to Ravenclaw</button>
+
+					<button id="addPoints--hufflepuff" onclick={this.addPoints("hufflepuff")}>Add 10 points to Hufflepuff</button>
+					<button id="removePoints--hufflepuff" onclick={this.removePoints("hufflepuff")}>Add 10 points to Hufflepuff</button>
+				</div>
+		)
 	}
 }
 
